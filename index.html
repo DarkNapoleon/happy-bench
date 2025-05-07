@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Happy Bench offre servizi di psicologia sportiva per agenzie e giovani atleti. Migliora le performance mentali e la resilienza dei tuoi talenti sportivi.">
+    <title>Happy Bench - Psicologia Sportiva per Giovani Atleti</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary: #E048B6;
+            --primary-dark: #B2389A;
+            --primary-light: #F6DCEF;
+            --secondary: #FF72CE;
+            --dark-blue: #9A2E86;
+            --text: #333333;
+            --text-light: #4b5563;
+            --light-bg: #f9fafb;
+            --white: #ffffff;
+            --border: #d1d5db;
+            --success: #15803d;
+            --error: #b91c1c;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header e Navigazione */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #home {
+            background-color: var(--primary-light);
+            padding: 6rem 0;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .hero-img {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        /* Bottoni */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        /* Sezioni generali */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 25%;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Come funziona */
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            background-color: var(--secondary);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step p {
+            color: var(--text-light);
+        }
+
+        /* Servizi */
+        #servizi {
+            background-color: var(--white);
+        }
+
+        .servizi-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .servizio {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            width: 350px;
+            box-shadow: var(--shadow);
+            text-align: left;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .servizio:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+        }
+
+        .servizio-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .servizio h3 {
+            font-size: 1.4rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .servizio ul {
+            list-style-position: inside;
+            margin-top: 1rem;
+            color: var(--text-light);
+        }
+
+        .servizio ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Team psicologi */
+        #psicologi {
+            background-color: var(--light-bg);
+        }
+
+        .psicologi-container {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .psicologo {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .psicologo:hover {
+            transform: translateY(-10px);
+        }
+
+        .psicologo-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .psicologo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .psicologo:hover img {
+            transform: scale(1.05);
+        }
+
+        .psicologo-info {
+            padding: 1.5rem;
+        }
+
+        .psicologo h3 {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .psicologo-title {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .psicologo p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--secondary);
+        }
+
+        /* Benefici */
+        #benefici {
+            background-color: var(--primary-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefici-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .benefici-img {
+            flex: 1;
+        }
+
+        .benefici-img img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .benefici-content {
+            flex: 1;
+        }
+
+        .beneficio {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .beneficio-icon {
+            background-color: var(--white);
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .beneficio-text h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .beneficio-text p {
+            color: var(--text-light);
+        }
+
+        /* Testimonianze */
+        #testimonianze {
+            background-color: var(--white);
+        }
+
+        .testimonianze-container {
+            margin-top: 3rem;
+            position: relative;
+            padding: 0 1.5rem;
+        }
+
+        .testimonianza {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonianza::before {
+            content: '"';
+            font-size: 6rem;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            color: var(--primary-light);
+            font-family: serif;
+            z-index: 0;
+        }
+
+        .testimonianza p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+        }
+
+        .testimoniante {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimoniante-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .testimoniante-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimoniante h4 {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.2rem;
+        }
+
+        .testimoniante span {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--border);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--primary);
+        }
+
+        /* FAQ */
+        #faq {
+            background-color: var(--light-bg);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--dark-blue);
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            color: var(--text-light);
+        }
+
+        .faq-answer-content {
+            padding-bottom: 1.2rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-toggle {
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* Contatti */
+        #contatti {
+            background-color: var(--primary-light);
+        }
+
+        .contatti-container {
+            display: flex;
+            gap: 4rem;
+            margin-top: 3rem;
+            align-items: flex-start;
+        }
+
+        .contact-info-container {
+            flex: 1;
+        }
+
+        .contact-info {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-method {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-method:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-details p, .contact-details a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-details a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form-container {
+            flex: 1;
+        }
+
+        #contact-form {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: var(--dark-blue);
+        }
+
+        #contact-form input, #contact-form textarea, #contact-form select {
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        #contact-form input:focus, #contact-form textarea:focus, #contact-form select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(224, 72, 182, 0.2);
+        }
+
+        #contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        #form-message {
+            margin-top: 1rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .form-success {
+            color: var(--success);
+        }
+
+        .form-error {
+            color: var(--error);
+        }
+
+        /* CTA */
+        #cta {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        #cta h2 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        #cta h2::after {
+            background-color: var(--white);
+        }
+
+        #cta p {
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .footer-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .footer-about p {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background-color: var(--primary);
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .newsletter-form button {
+            padding: 0.8rem 1rem;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+            }
+
+            .benefici-container {
+                flex-direction: column;
+            }
+
+            .contatti-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 1rem;
+                box-shadow: var(--shadow);
+                transform: translateY(-200%);
+                transition: var(--transition);
+                z-index: 99;
+            }
+
+            nav.active {
+                transform: translateY(0);
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .step {
+                min-width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            .footer-col {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="ASSETS/images/logo happy.png" alt="Happy Bench Logo">
+                <span>Happy Bench</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#come-funziona">Come Funziona</a></li>
+                    <li><a href="#servizi">Servizi</a></li>
+                    <li><a href="#psicologi">Il Team</a></li>
+                    <li><a href="#testimonianze">Testimonianze</a></li>
+                    <li><a href="#contatti">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Supporto mentale per <span class="highlight">vincere</span> nello sport</h1>
+                    <p>Aiutiamo le agenzie sportive a sviluppare il potenziale mentale dei giovani atleti. Una mente forte è la chiave per performance eccellenti.</p>
+                    <div>
+                        <a href="#contatti" class="btn">Prenota una Consulenza</a>
+                        <a href="#servizi" class="btn btn-secondary">Scopri i Servizi</a>
+                    </div>
+                </div>
+                <div class="hero-img">
+                    <img src="ASSETS/images/allenare-giovani-atleti.webp" alt="Giovani atleti motivati">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="come-funziona">
+        <div class="container">
+            <div class="section-header">
+                <h2>Come Lavoriamo</h2>
+                <p class="subtitle">Un processo semplice ed efficace per supportare i giovani talenti sportivi e farli crescere sia tecnicamente che mentalmente.</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Analisi Iniziale</h3>
+                    <p>Valutiamo la situazione attuale dell'atleta o del team attraverso incontri e test specifici per identificare i punti di forza e le aree di miglioramento.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Piano Personalizzato</h3>
+                    <p>Creiamo un percorso su misura in base agli obiettivi, alle sfide specifiche e alle caratteristiche individuali dell'atleta o del gruppo.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Sessioni di Coaching</h3>
+                    <p>Implementiamo il programma attraverso incontri individuali o di gruppo regolari, esercizi pratici e tecniche per migliorare la performance.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Monitoraggio e Feedback</h3>
+                    <p>Seguiamo i progressi continuamente, adattando l'approccio se necessario e fornendo feedback costante agli atleti e allo staff tecnico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Servizi -->
+    <section id="servizi">
+        <div class="container">
+            <div class="section-header">
+                <h2>I Nostri Servizi</h2>
+                <p class="subtitle">Offriamo programmi specializzati per aiutare giovani atleti e team a costruire una mentalità vincente e superare le barriere psicologiche.</p>
+            </div>
+            <div class="servizi-container">
+                <div class="servizio">
+                    <div class="servizio-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Mental Coaching Individuale</h3>
+                    <p>Sessioni personalizzate per supportare i giovani atleti nello sviluppo di competenze mentali specifiche per la loro performance sportiva.</p>
+                    <ul>
+                        <li>Gestione dell'ansia pre-gara</li>
+                        <li>Tecniche di concentrazione</li>
+                        <li>Costruzione della fiducia</li>
+                        <li>Visualizzazione e imagery</li>
+                        <li>Gestione della pressione</li>
+                    </ul>
+                </div>
+                <div class="servizio">
+                    <div class="servizio-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Team Building e Dinamiche di Gruppo</h3>
+                    <p>Interventi mirati per migliorare la coesione del team, la comunicazione e sviluppare un ambiente di gruppo positivo e orientato all'eccellenza.</p>
+                    <ul>
+                        <li>Coesione e spirito di squadra</li>
+                        <li>Comunicazione efficace</li>
+                        <li><li>Comunicazione efficace</li>
+                        <li>Gestione dei conflitti</li>
+                        <li>Obiettivi condivisi</li>
+                        <li>Leadership positiva</li>
+                    </ul>
+                </div>
+                <div class="servizio">
+                    <div class="servizio-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Formazione per Allenatori</h3>
+                    <p>Programmi dedicati agli allenatori per acquisire strumenti psicologici da integrare nell'allenamento quotidiano dei giovani atleti.</p>
+                    <ul>
+                        <li>Motivazione efficace</li>
+                        <li>Comunicazione costruttiva</li>
+                        <li>Gestione delle diverse personalità</li>
+                        <li>Supporto emotivo</li>
+                        <li>Sviluppo del potenziale</li>
+                    </ul>
+                </div>
+                <div class="servizio">
+                    <div class="servizio-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Recupero dall'Infortunio</h3>
+                    <p>Supporto psicologico per atleti in fase di recupero da infortuni, per mantenere la motivazione e prepararsi al ritorno all'attività sportiva.</p>
+                    <ul>
+                        <li>Gestione emotiva del trauma</li>
+                        <li>Mantenimento della motivazione</li>
+                        <li>Visualizzazione del recupero</li>
+                        <li>Strategie per il ritorno in campo</li>
+                        <li>Prevenzione delle ricadute</li>
+                    </ul>
+                </div>
+                <div class="servizio">
+                    <div class="servizio-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Performance Analysis</h3>
+                    <p>Valutazione approfondita degli aspetti mentali che influenzano la performance sportiva, con report dettagliati e raccomandazioni specifiche.</p>
+                    <ul>
+                        <li>Test psicometrici</li>
+                        <li>Analisi comportamentale</li>
+                        <li>Identificazione dei blocchi</li>
+                        <li>Valutazione della resilienza</li>
+                        <li>Strategie personalizzate</li>
+                    </ul>
+                </div>
+                <div class="servizio">
+                    <div class="servizio-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Workshop e Seminari</h3>
+                    <p>Incontri formativi su tematiche specifiche della psicologia sportiva per atleti, genitori, allenatori e dirigenti sportivi.</p>
+                    <ul>
+                        <li>Gestione dello stress</li>
+                        <li>Mindfulness nello sport</li>
+                        <li>Equilibrio vita-sport</li>
+                        <li>Crescita post-traumatica</li>
+                        <li>Cultura sportiva positiva</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Team -->
+    <section id="psicologi">
+        <div class="container">
+            <div class="section-header">
+                <h2>Il Nostro Team</h2>
+                <p class="subtitle">Professionisti altamente qualificati ed esperti nel supporto psicologico di giovani atleti e team sportivi.</p>
+            </div>
+            <div class="psicologi-container">
+                <div class="psicologo">
+                    <div class="psicologo-img">
+                        <img src="ASSETS/images/2.webp" alt="Dott.ssa Martina Bianchi">
+                    </div>
+                    <div class="psicologo-info">
+                        <h3>Dott.ssa Martina Bianchi</h3>
+                        <div class="psicologo-title">Psicologa dello Sport - Fondatrice</div>
+                        <p>Specializzata in mental coaching con oltre 10 anni di esperienza nel supporto a giovani atleti di sport individuali e di squadra.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="far fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="psicologo">
+                    <div class="psicologo-img">
+                        <img src="ASSETS/images/1.jpeg" alt="Dott. Luca Rossini">
+                    </div>
+                    <div class="psicologo-info">
+                        <h3>Dott. Luca Rossini</h3>
+                        <div class="psicologo-title">Psicologo dello Sport - Responsabile Team</div>
+                        <p>Esperto in dinamiche di gruppo e team building, ha lavorato con numerose squadre giovanili di calcio, basket e pallavolo.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="far fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="psicologo">
+                    <div class="psicologo-img">
+                        <img src="ASSETS/images/3.jpg" alt="Dott.ssa Sofia Conti">
+                    </div>
+                    <div class="psicologo-info">
+                        <h3>Dott.ssa Sofia Conti</h3>
+                        <div class="psicologo-title">Psicologa dello Sport - Recupero Infortuni</div>
+                        <p>Specializzata nel supporto psicologico durante il recupero da infortuni, con un approccio olistico e orientato alla resilienza.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="far fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="psicologo">
+                    <div class="psicologo-img">
+                        <img src="ASSETS/images/4.jpg" alt="Dott. Marco Ferrari">
+                    </div>
+                    <div class="psicologo-info">
+                        <h3>Dott. Marco Ferrari</h3>
+                        <div class="psicologo-title">Psicologo dello Sport - Performance Analysis</div>
+                        <p>Esperto in valutazione e analisi della performance mentale, utilizza tecniche avanzate di misurazione e feedback per ottimizzare i risultati.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="far fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="psicologo">
+                    <div class="psicologo-img">
+                        <img src="ASSETS/images/5.jpg" alt="Dott.ssa Elena Moretti">
+                    </div>
+                    <div class="psicologo-info">
+                        <h3>Dott.ssa Elena Moretti</h3>
+                        <div class="psicologo-title">Psicologa dello Sport - Formazione</div>
+                        <p>Specializzata nella formazione di allenatori e genitori, con focus sulla creazione di ambienti sportivi sani e motivanti per i giovani atleti.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="far fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="psicologo">
+                    <div class="psicologo-img">
+                        <img src="ASSETS/images/6.webp" alt="Dott. Andrea Romano">
+                    </div>
+                    <div class="psicologo-info">
+                        <h3>Dott. Andrea Romano</h3>
+                        <div class="psicologo-title">Psicologo dello Sport - Mind-Body Training</div>
+                        <p>Esperto in tecniche di integrazione mente-corpo, mindfulness e respirazione per migliorare la concentrazione e gestire lo stress agonistico.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="far fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Benefici -->
+    <section id="benefici">
+        <div class="container">
+            <div class="section-header">
+                <h2>Perché Sceglierci</h2>
+                <p class="subtitle">I vantaggi concreti che i giovani atleti ottengono lavorando con il team di Happy Bench.</p>
+            </div>
+            <div class="benefici-container">
+                <div class="benefici-img">
+                    <img src="ASSETS/images/atleti.jpg" alt="Atleti che celebrano un successo">
+                </div>
+                <div class="benefici-content">
+                    <div class="beneficio">
+                        <div class="beneficio-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="beneficio-text">
+                            <h4>Performance Migliorate</h4>
+                            <p>I nostri atleti sperimentano un miglioramento tangibile nelle performance grazie alla gestione ottimale della pressione e all'aumento della concentrazione.</p>
+                        </div>
+                    </div>
+                    <div class="beneficio">
+                        <div class="beneficio-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="beneficio-text">
+                            <h4>Maggiore Resilienza</h4>
+                            <p>Sviluppiamo la capacità di affrontare le sconfitte, gli ostacoli e le sfide come opportunità di crescita, costruendo una mentalità forte e resistente.</p>
+                        </div>
+                    </div>
+                    <div class="beneficio">
+                        <div class="beneficio-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <div class="beneficio-text">
+                            <h4>Benessere Psicologico</h4>
+                            <p>Promuoviamo un approccio equilibrato allo sport che favorisce il benessere generale, prevenendo burnout e mantenendo alta la motivazione.</p>
+                        </div>
+                    </div>
+                    <div class="beneficio">
+                        <div class="beneficio-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="beneficio-text">
+                            <h4>Competenze Trasferibili</h4>
+                            <p>Le abilità mentali sviluppate attraverso i nostri programmi hanno un impatto positivo anche nella vita quotidiana e nel rendimento scolastico.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezioni aggiuntive da qui in poi -->
+
+    <script>
+        // Menu mobile toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formMessage = document.getElementById('form-message');
+                formMessage.textContent = 'Messaggio inviato con successo! Ti contatteremo presto.';
+                formMessage.classList.add('form-success');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
